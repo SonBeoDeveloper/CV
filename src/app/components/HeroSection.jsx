@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="col-span-8 place-self-center text-center sm:text-left justify-self-start">
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-              Xin chào, tôi là{" "}
+              Xin chào, tôi là
             </span>
             <br />
             <TypeAnimation
@@ -33,7 +33,7 @@ const HeroSection = () => {
             dolor minima eligendi exercitationem laborum impedit quis, porro
             repellat totam libero?
           </p>
-          <div className="">
+          <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white">
               Tuyển tôi
             </button>
