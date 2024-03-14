@@ -14,7 +14,7 @@ const TAB_DATA = [
         <li>Javascript</li>
         <li>React</li>
         <li>React-Native</li>
-        <li>PostgreSQL</li>
+        <li>MySQL</li>
       </ul>
     ),
   },
@@ -45,11 +45,11 @@ const AboutSection = () => {
             Thông tin về tôi
           </h2>
           <p className="text-base lg:text-lg">
-            I'm a full stack web developer with a passion for creating
-            interactive and responsive web application. I have a experiance
-            working with javascript, nodeJS, React, React-native, Redux,
-            mongoDB, Express, PostgreSQL, HTML ,CSS and Git.I'm quick learner
-            and i'm always looking eo expand my knowledge and skill set.
+            Tôi là một lập trình viên web full stack với đam mê tạo ra các ứng
+            dụng web tương tác và phản hồi. Tôi có kinh nghiệm làm việc với
+            JavaScript, NodeJS, React, React Native, Redux, MongoDB, Express,
+            mySql, HTML, CSS và Git. Tôi là người học nhanh và luôn tìm cách mở
+            rộng kiến thức và kỹ năng của mình.
           </p>
           <div className="flex flex-row mt-8">
             <TabButton

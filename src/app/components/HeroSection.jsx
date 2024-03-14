@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 
@@ -8,7 +9,7 @@ const HeroSection = () => {
     <section className="lg:py-16">
       <div className="grid grid-cols-1 lg:grid-cols-12">
         <div className="col-span-8 place-self-center text-center sm:text-left justify-self-start">
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
+          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-7xl lg:leading-normal font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
               Xin chào, tôi là
             </span>
@@ -28,17 +29,23 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ea
-            a quaerat accusamus ullam maiores, nam consequatur ratione aliquid,
-            dolor minima eligendi exercitationem laborum impedit quis, porro
-            repellat totam libero?
+            Mục tiêu của tôi là trở thành một JavaScript developer giỏi. Sau này
+            khi học hỏi từ vị trí của mình, tôi sẽ chuyển sang Project
+            Management, tôi sẽ tiếp tục xây dựng trên kiến thức và kinh nghiệm
+            của mình trong lĩnh vực công nghệ thông tin để áp dụng vào vai trò
+            mới.
           </p>
           <div>
-            <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white">
+            <Link
+              href={"/#contact"}
+              className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white"
+            >
               Tuyển tôi
-            </button>
+            </Link>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-transparent hover:bg-slate-800 text-white mt-3 border border-white">
-              Tải CV
+              <a href="/CV.pdf" download="CV.pdf">
+                Tải CV
+              </a>
             </button>
           </div>
         </div>
