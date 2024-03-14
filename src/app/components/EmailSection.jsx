@@ -1,32 +1,33 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import GithubIcon from "../../../public/github.svg";
 import FacebookIcon from "../../../public/facebook.svg";
-
+import emailjs from "@emailjs/browser";
 const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const handleSubmit = async (e) => {
+  const ref = useRef();
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const formRef = useRef();
+  const sendEmail = (e) => {
     e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
-    const option = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSONdata,
-    };
-    const response = await fetch(endpoint, option);
-    const resData = await response.json();
-    if (response.status === 200) {
-      console.log("Message sent");
-      setEmailSubmitted(true);
-    }
+
+    emailjs
+      .sendForm(
+        "service_llimoo4",
+        "template_lxwslkf",
+        formRef.current,
+        "vG2XhpRQWye5pWFhP"
+      )
+      .then(
+        (result) => {
+          setSuccess(true);
+        },
+        (error) => {
+          setError(true);
+        }
+      );
   };
   return (
     <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
@@ -52,7 +53,7 @@ const EmailSection = () => {
         </div>
       </div>
       <div className="">
-        <form action="flex flex-cols" onSubmit={handleSubmit}>
+        <form action="flex flex-cols" ref={formRef} onSubmit={sendEmail}>
           <div className="mb-6">
             <label
               htmlFor="email"
@@ -71,18 +72,18 @@ const EmailSection = () => {
           </div>
           <div className="mb-6">
             <label
-              htmlFor="subject"
+              htmlFor="name"
               className="text-white block text-sm mb-2 font-medium"
             >
-              Subject
+              Name
             </label>
             <input
-              name="subject"
+              name="name"
               type="text"
-              id="subject"
+              id="name"
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 "
               required
-              placeholder="just saying hi"
+              placeholder="Nguyen Van A"
             />
           </div>
           <div className="mb-6">
@@ -95,6 +96,7 @@ const EmailSection = () => {
             <input
               type="message"
               id="message"
+              name="message"
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 "
               required
               placeholder="just saying hi"
@@ -106,8 +108,11 @@ const EmailSection = () => {
           >
             Send message
           </button>
-          {emailSubmitted && (
+          {success && (
             <p className="text-green-500 text-sm mt-2">Email gửi thành công</p>
+          )}
+          {error && (
+            <p className="text-red-500 text-sm mt-2">Email gửi thất bại</p>
           )}
         </form>
       </div>
